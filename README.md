@@ -10,9 +10,8 @@
 - [Stage](#stage)
 - [Unstage](#unstage)
 - [Inspect & Compare](#inspect-&-compare)
-- [Branches & Tags](#branches-&-tags)
-- [Merge & Rebase](#merge-&-rebase)
-- [Undo](#undo)
+- [Branch & Merge](#branch&-merge)
+- [Reset](#reset)
 - [Update & Publish](#update-&-publish)
 - [Sub-Module](#sub-module)
 - [Git Flow](#git-flow)
@@ -73,7 +72,7 @@ Show difference (**working directory**, **staging area**)
 
 	git diff --staged [file]
 
-Show commit history (**git repository**)
+Show commits in the current branch’s history (**git repository**)
 
 	git log
 
@@ -87,31 +86,44 @@ Show commit history in GUI (**git repository**)
 
 	gitk
 
-### <span style="color:DodgerBlue">Branches & Tags</span>
-#### List all local branches:
-	$ git branch
-#### Create and switch new branch:
-	$ git checkout -b <branch>
-#### Switch HEAD branch:
-	$ git checkout <branch>
-#### Delete a local branch:
-	$ git branch -d <branch>
----
-### <span style="color:DodgerBlue">Merge & Rebase</span>
-#### Merge branch into your current HEAD:
-	$ git merge <branch>
----
-### <span style="color:DodgerBlue">Undo</span>
-#### Discard changes in a specific file in Working Directory:
-	$ git restore <file>
-#### Unstage a specific file in Staging Area:
-	$ git restore --staged <file>
-#### Reset your HEAD pointer to a previous commit and | all changes in Working Dir | all changes in Staging Area | discard all changes since then | :
-	$ git reset --soft <id-commit>
-	$ git reset --mixed <id-commit>
-	$ git reset --hard <id-commit>
-#### Revert a commit (by producing a new commit with contrary changes):
-	$ git revert <id-commit>
+### <span style="color:DodgerBlue">Branch & Merge</span>
+
+List all branches
+
+	git branch
+
+Create a new branch at the current commit
+
+	git branch [branch-name]
+
+Delete a local branch
+
+	git branch -d [branch]
+
+Switch to another branch
+
+	git checkout [branch]
+
+Merge the specified branch’s history into the current one
+
+	git merge [branch]
+
+### <span style="color:DodgerBlue">Reset</span>
+
+Reset your HEAD pointer to a specified commit and put at
+
+**staging area**
+
+	git reset --soft <SHA>
+
+**working directory**
+
+	git reset --mixed <SHA>
+
+... and discard changes
+
+	git reset --hard <SHA>
+
 #### Amend with last commit
 	$ git commit --amend -m 'New message'
 	$ git push --force-with-lease <repository> <branch>
