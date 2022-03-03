@@ -12,7 +12,7 @@
 - [Inspect & Compare](#inspect-&-compare)
 - [Branch & Merge](#branch&-merge)
 - [Reset](#reset)
-- [Update & Publish](#update-&-publish)
+- [Push & Pull](#push-&-pull)
 - [Sub-Module](#sub-module)
 - [Git Flow](#git-flow)
 
@@ -124,30 +124,27 @@ Reset your HEAD pointer to a specified commit and put at
 
 	git reset --hard <SHA>
 
-#### Amend with last commit
-	$ git commit --amend -m 'New message'
-	$ git push --force-with-lease <repository> <branch>
----
-### <span style="color:DodgerBlue">Update & Publish</span>
-#### Add new remote repository, named <remote>:
-	$ git remote add <remote> <url>
-#### List all current configured remotes:
-	$ git remote -v
-#### Publish local changes | (first time):
-	$ git push
-	$ git push -u <remote> <branch>
-#### Get all changes to local repository:
-	$ git pull
-#### Remove a folder from git tracking (Add the folder path to .gitignore file):
-	$ git rm -r --cached <path_folder>
----
+### <span style="color:DodgerBlue">Push & Pull</span>
+
+Transmit local branch commits to the remote repository branch
+
+	git push
+
+Fetch and merge any commits from the tracking remote branch
+
+	git pull
+
 ### <span style="color:DodgerBlue">Sub-Module</span>
-#### Initialize a submodule:
-	$ git submodule add <repository> <path>
-#### Update a submodule \| all submodules:
-	$ git submodule update [--init]
-	$ git submodule foreach git pull <remote> <branch>
----
+
+Initialize a submodule
+
+	git submodule add [repository [path]
+
+Update (a) submodule(s)
+
+	git submodule update [--init]
+
+	git submodule foreach git pull [remote] [branch]
 
 ### <span style="color:DodgerBlue">Git Flow</span>
 
