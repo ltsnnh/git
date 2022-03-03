@@ -8,6 +8,7 @@
 - [Set up](#set-up)
 - [Init](#init)
 - [Stage](#stage)
+- [Unstage](#unstage)
 - [Inspect & Compare](#inspect-&-compare)
 - [Branches & Tags](#branches-&-tags)
 - [Merge & Rebase](#merge-&-rebase)
@@ -54,25 +55,35 @@ Commit your staged content with message (**staging area** → **git repository**
 
 	git commit [file] -m "[message]"
 
+### <span style="color:DodgerBlue">Unstage</span>
+
+Discard changes in **working directory**
+
+	git restore [file]
+
+Unstage (**working directory** ← **staging area**)
+
+	git restore --staged [file]
+
 ### <span style="color:DodgerBlue">Inspect & Compare</span>
 
-Show commit history
-
-	git log
-
-	git log --follow [file]
-
-Show any object in Git in human-readable format
-
-	git show [SHA]
-
-Show difference
+Show difference (**working directory**, **staging area**)
 
 	git diff [file]
 
 	git diff --staged [file]
 
-Show commit history in GUI
+Show commit history (**git repository**)
+
+	git log
+
+	git log --follow [file]
+
+Show any object in Git in human-readable format (**git repository**)
+
+	git show [SHA]
+
+Show commit history in GUI (**git repository**)
 
 	gitk
 
