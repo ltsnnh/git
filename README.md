@@ -130,9 +130,15 @@ Transmit local branch commits to the remote repository branch
 
     git push
 
+    git push [alias] [branch]
+
 Fetch and merge any commits from the tracking remote branch
 
     git pull
+
+Fetch down a branch from that Git remote
+
+    git fetch [alias] [branch]
 
 ### <span style="color:DodgerBlue">Sub-Module</span>
 
