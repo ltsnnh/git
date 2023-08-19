@@ -13,6 +13,8 @@
 - [Reset](#reset)
 - [Push & Pull](#push-&-pull)
 - [Sub-Module](#sub-module)
+- [Resolve Conflict (method: Rebase)](#resolve-conflict-method-rebase)
+- [Resolve Conflict (method: 3-way merge)](#resolve-conflict-method-3-way-merge)
 - [Git Flow](#git-flow)
 
 ### <span style="color:DodgerBlue">Set up</span>
@@ -47,21 +49,21 @@ Changes in **working directory**
 
 Add current changes to the next commit (**working directory** → **staging area**)
 
-    git add [file]
+    git add [files]
 
 Commit your staged content with message (**staging area** → **git repository**)
 
-    git commit [file] -m "[message]"
+    git commit [files] -m "[message]"
 
 ### <span style="color:DodgerBlue">Unstage</span>
 
 Discard changes in **working directory**
 
-    git restore [file]
+    git restore [files]
 
 Unstage (**working directory** ← **staging area**)
 
-    git restore --staged [file]
+    git restore --staged [files]
 
 ### <span style="color:DodgerBlue">Inspect & Compare</span>
 
@@ -69,7 +71,7 @@ Show commits in the current branch’s history (**git repository**)
 
     git log
 
-    git log --follow [file]
+    git log --follow [files]
 
 Show any object in Git in human-readable format (**git repository**)
 
@@ -77,9 +79,9 @@ Show any object in Git in human-readable format (**git repository**)
 
 Show difference (**working directory**, **staging area**)
 
-    git diff [file]
+    git diff [files]
 
-    git diff --staged [file]
+    git diff --staged [files]
 
 Show commit history in GUI (**git repository**)
 
@@ -97,7 +99,7 @@ Create a new branch at the current commit
 
 Delete a local branch
 
-    git branch -d [branch]
+    git branch -D [branch]
 
 Switch to another branch
 
@@ -148,6 +150,54 @@ Update (a) submodule(s)
     git submodule update [--init]
 
     git submodule foreach git pull [remote] [branch]
+
+### <span style="color:Violet">Resolve Conflict (method: Rebase)</span>
+
+step 1:
+
+    git checkout [master]
+
+    git pull [alias] [master]
+
+step 2:
+
+    git checkout [branch-be-conflicted]
+
+    git rebase [master]
+
+step 3: Resolve conflicted files manually and do
+
+    git add [conflicted-files]
+
+    git rebase --continue
+
+step 4:
+
+    git push [alias] [branch-be-conflicted] -f
+
+### <span style="color:Violet">Resolve Conflict (method: 3-way merge)</span>
+
+step 1:
+
+    git checkout [master]
+
+    git pull [alias] [master]
+
+step 2:
+
+    git checkout [branch-be-conflicted]
+
+    git merge [master]
+
+step 3: Resolve conflicted files manually and do
+
+    git add [conflicted-files]
+
+    git commit -m [conflicted-files] "[message]"
+
+step 4:
+
+    git push [alias] [branch-be-conflicted]
 
 ### <span style="color:DodgerBlue">Git Flow</span>
 
