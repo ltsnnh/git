@@ -93,7 +93,7 @@ List all branches
 
 Create a new branch at the current commit
 
-    git branch [branch-name]
+    git branch [branch]
 
 Delete a local branch
 
@@ -126,8 +126,6 @@ Reset your HEAD pointer to a specified commit and put at
 ### <span style="color:DodgerBlue">Push & Pull</span>
 
 Transmit local branch commits to the remote repository branch
-
-    git push
 
     git push [alias] [branch]
 
