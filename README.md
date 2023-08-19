@@ -1,7 +1,6 @@
-
 # <span style="color:Tomato">Git Cheat Sheet</span>
 
-[![Git Logo](https://live.staticflickr.com/65535/51913894456_588b836c2b_c.jpg "Git")](https://flic.kr/p/2n6shaN)
+[![Git Logo](https://live.staticflickr.com/65535/53127315515_e6b5a014eb_o.png "Git")](https://flic.kr/p/2oWFnYx)
 
 ## <span style="color:Orange">Index</span>
 
@@ -18,7 +17,7 @@
 
 ### <span style="color:DodgerBlue">Set up</span>
 
-Configuring user information used across all local repositories
+Configure user information used across all local repositories
 
     git config --global user.name “[user-name]”
 
@@ -66,12 +65,6 @@ Unstage (**working directory** ← **staging area**)
 
 ### <span style="color:DodgerBlue">Inspect & Compare</span>
 
-Show difference (**working directory**, **staging area**)
-
-    git diff [file]
-
-    git diff --staged [file]
-
 Show commits in the current branch’s history (**git repository**)
 
     git log
@@ -81,6 +74,12 @@ Show commits in the current branch’s history (**git repository**)
 Show any object in Git in human-readable format (**git repository**)
 
     git show [SHA]
+
+Show difference (**working directory**, **staging area**)
+
+    git diff [file]
+
+    git diff --staged [file]
 
 Show commit history in GUI (**git repository**)
 
@@ -154,4 +153,4 @@ Update (a) submodule(s)
 
 ### <span style="color:DodgerBlue">Git Flow</span>
 
-[![Basic Remote Workflow](https://live.staticflickr.com/65535/51912929657_c43e3b4cbe_c.jpg "Workflow")](https://flic.kr/p/2n6nknk)
+[![Basic Remote Workflow](https://live.staticflickr.com/65535/53127118219_2d860b6f94_o.png "Workflow")](https://flic.kr/p/2oWEnjT)
