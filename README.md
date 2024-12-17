@@ -1,149 +1,52 @@
-# <span style="color:Tomato">Git Cheat Sheet</span>
-
-[![Git Logo](https://live.staticflickr.com/65535/53127315515_e6b5a014eb_o.png "Git")](https://flic.kr/p/2oWFnYx)
-
+# <span style="color:Tomato">The Git Guide</span>
+![Git Logo](https://live.staticflickr.com/65535/53127315515_e6b5a014eb_o.png "Git")
 ## <span style="color:Orange">Index</span>
+1. [About Git](#about-git)
+1. [Git Basics](#git-basics)
+1. [Resolve Conflict (method: Rebase)](#resolve-conflict-method-rebase)
+1. [Resolve Conflict (method: 3-way merge)](#resolve-conflict-method-3-way-merge)
+### <span style="color:DodgerBlue">About Git</span>
+#### Distributed Version Control Systems
+Every clone is really a full backup of all the data.
+#### Stream of snapshots
+Every time you commit, or save the state of your project,
+Git basically takes a picture of what all your files look like at that moment and
+stores a reference to that snapshot.  
+To be efficient, if files have not changed, Git doesn’t store the file again,
+just a link to the previous identical file it has already stored.
+#### Git Has Integrity
+Everything in Git is checksummed before it is stored and is then referred to by that checksum.  
+The mechanism that Git uses for this checksumming is called a SHA-1 hash (a 40-character string) looks like this:
+> 24b9da6552252987aa493b52f8696cd6d3b00373
 
-- [Set up](#set-up)
-- [Init](#init)
-- [Stage](#stage)
-- [Unstage](#unstage)
-- [Inspect & Compare](#inspect-&-compare)
-- [Branch & Merge](#branch&-merge)
-- [Reset](#reset)
-- [Push & Pull](#push-&-pull)
-- [Sub-Module](#sub-module)
-- [Resolve Conflict (method: Rebase)](#resolve-conflict-method-rebase)
-- [Resolve Conflict (method: 3-way merge)](#resolve-conflict-method-3-way-merge)
-- [Git Flow](#git-flow)
+In fact, Git stores everything in its database not by file name but by the hash value of its contents.
+#### The Three States
 
-### <span style="color:DodgerBlue">Set up</span>
+#### First-Time Git Setup
+You can view all of your settings and where they are coming from using:
 
-Configure user information used across all local repositories
+    $ git config --list --show-origin
+#### Your Settings
+    $ git config --global user.name "Ltsnnh"
+    $ git config --global user.email lt.anh197@gmail.com
+    $ git config --global core.editor code
+    $ git config --global init.defaultBranch main
+#### Getting Help
+    $ git <verb> --help
+### <span style="color:DodgerBlue">Git Basics</span>
+If you can read only one chapter to get going with Git, this is it.
 
-    git config --global user.name “[user-name]”
 
-    git config --global user.email “[valid-email]”
 
-    git config --global color.ui auto
 
-Show current configuration
 
-    git config --list
 
-### <span style="color:DodgerBlue">Init</span>
-
-Clone an existing repository (via SSH/HTTP)
-
-    git clone [--recursive] [url]
-
-Initialize an existing directory as a Git repository
-
-    git init [dir]
-
-### <span style="color:DodgerBlue">Stage</span>
-
-Changes in **working directory**
-
-    git status
-
-Add current changes to the next commit (**working directory** → **staging area**)
-
-    git add [files]
-
-Commit your staged content with message (**staging area** → **git repository**)
-
-    git commit [files] -m "[message]"
-
-### <span style="color:DodgerBlue">Unstage</span>
-
-Discard changes in **working directory**
-
-    git restore [files]
-
-Unstage (**working directory** ← **staging area**)
-
-    git restore --staged [files]
-
-### <span style="color:DodgerBlue">Inspect & Compare</span>
-
-Show commits in the current branch’s history (**git repository**)
-
-    git log
-
-    git log --follow [files]
-
-Show any object in Git in human-readable format (**git repository**)
-
-    git show [SHA]
-
-Show difference (**working directory**, **staging area**)
-
-    git diff [files]
-
-    git diff --staged [files]
-
-Show commit history in GUI (**git repository**)
-
-    gitk
-
-### <span style="color:DodgerBlue">Branch & Merge</span>
-
-List all branches
-
-    git branch
-
-Create a new branch at the current commit
-
-    git branch [branch]
-
-Delete a local branch
-
-    git branch -D [branch]
-
-Switch to another branch
-
-    git checkout [branch]
-
-Merge the specified branch’s history into the current one
-
-    git merge [branch]
-
-### <span style="color:DodgerBlue">Reset</span>
-
-Reset your HEAD pointer to a specified commit and put at
-
-**staging area**
-
-    git reset --soft <SHA>
-
-**working directory**
-
-    git reset --mixed <SHA>
-
-... and discard changes
-
-    git reset --hard <SHA>
-
-### <span style="color:DodgerBlue">Push & Pull</span>
-
-Transmit local branch commits to the remote repository branch
-
-    git push [alias] [branch]
-
-Fetch and merge any commits from the tracking remote branch
-
-    git pull
-
-Fetch down a branch from that Git remote
-
-    git fetch [alias] [branch]
 
 ### <span style="color:DodgerBlue">Sub-Module</span>
 
 Initialize a submodule
 
-    git submodule add [repository [path]
+    git submodule add [repository] [path]
 
 Update (a) submodule(s)
 
@@ -198,7 +101,3 @@ step 3: Resolve conflicted files manually and do
 step 4:
 
     git push [alias] [branch-be-conflicted]
-
-### <span style="color:DodgerBlue">Git Flow</span>
-
-[![Basic Remote Workflow](https://live.staticflickr.com/65535/53127118219_2d860b6f94_o.png "Workflow")](https://flic.kr/p/2oWEnjT)
